@@ -1,25 +1,25 @@
-/* eslint-disable no-unused-vars */
-import React, { useState } from "react";
-import Register from "./components/Register";
+import React from "react";
+import NameChange from "./components/NameChange";
+import ObjectMap from "./components/ObjectMap";
+import ObjectJson from "./components/ObjectJson";
+import FormEx from "./components/FormEx";
+import PropsEx from "./components/PropsEx";
+import JsonEx from "./components/JsonEx";
 
 const App = () => {
-  const [text, settext] = useState("hello");
-
-  // usestate, useEffect two way binding
-
-  const click = () => {
-    settext("Hello world");
-  };
-
   return (
-    <>
-      <div>
-        {text}
-        <hr></hr>
-        <button onClick={click}>click</button>
-        <Register />
-      </div>
-    </>
+    <div>
+      {/* <NameChange /> */}
+      {/* <ObjectMap /> */}
+      {/* <ObjectJson /> */}
+      <FormEx />
+
+      <br />
+      <hr />
+      {/* <PropsEx /> */}
+      <hr />
+      {/* <JsonEx /> */}
+    </div>
   );
 };
 
