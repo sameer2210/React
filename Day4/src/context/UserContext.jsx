@@ -10,7 +10,7 @@ const UserContext = ({children}) => {
     city : "bhopal"
   }
   return (
-    <div>
+    <div className="">
       <DataContext.Provider value={userdata}>
         {children}
       </DataContext.Provider>

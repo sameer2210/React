@@ -4,12 +4,13 @@ import Home from "../pages/Home";
 import About from "../pages/About";
 import Contact from "../pages/Contact";
 import Product from "../pages/Product";
+import { Route, Routes } from "react-router-dom";
 
 const ReactRouterDom = () => {
   return (
-    <div>
+    <div className="h-screen w-full bg-red-200 p-5">
+      <h1  className="text-2xl font-bold">This is ReactRouterDom</h1>
       <Header />
-      <h2>sam</h2>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />

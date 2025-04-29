@@ -5,10 +5,12 @@ const FormEx = () => {
   const [email, setemail] = useState("");
   const [gender, setgender] = useState("male");
   const [vote, setvote] = useState("eligible");
+  const [city, setcity] = useState("mumbai");
+
 
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log({ fullname, email, gender, vote });
+    console.log({ fullname, email, gender, vote, city });
   };
   return (
     <div>
@@ -53,6 +55,17 @@ const FormEx = () => {
           }
         />
         Eligible or Not Eligible for Vote?
+        <br />
+          <select
+                    value={city}
+                    onChange={(e) => setcity(e.target.value)}
+                    className="block mt-5"
+                >
+                    <option value="bhopal">Bhopal</option>
+                    <option value="indore">Indore</option>
+                    <option value="delhi">Delhi</option>
+                    <option value="mumbai">Mumbai</option>
+           </select>
         <br />
         <br />
         <button>submit</button>

@@ -11,7 +11,7 @@ const App = () => {
 
   return (
     <>
-      <h1>this is App <br/> {data.username} age = {data.age} city = {data.city}</h1>
+      <h1 className=" bg-gray-200 text-2xl font-bold p-5 ">This is App <br/> name =  {data.username} , age = {data.age} , city = {data.city}</h1>
       <hr/>
       <Header />
       <hr/>
