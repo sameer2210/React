@@ -5,7 +5,7 @@ export const DataContext = createContext();
 
 const UserContext = ({children}) => {
   const userdata = {
-    username : "sameer",
+    username : "Sameer",
     age : 34,
     city : "bhopal"
   }

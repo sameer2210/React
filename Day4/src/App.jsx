@@ -1,9 +1,9 @@
-
 import React, { useContext } from "react";
 import Header from "./components/Header";
 import Section from "./components/Section";
 import Footer from "./components/Footer";
 import { DataContext } from "./context/UserContext";
+import HookForm from "./Home/HookForm";
 
 const App = () => {
   const data = useContext(DataContext);
@@ -11,19 +11,28 @@ const App = () => {
 
   return (
     <>
-      <h1 className=" bg-gray-200 text-2xl font-bold p-5 ">This is App <br/> name =  {data.username} , age = {data.age} , city = {data.city}</h1>
-      <hr/>
+      <h1 className=" bg-gray-200 text-2xl font-bold p-5 ">
+        This is App <br /> name = {data.username} , age = {data.age} , city ={" "}
+        {data.city}
+      </h1>
+      <hr />
       <Header />
-      <hr/>
+      <hr />
       <Section />
-      <hr/>
+      <hr />
       <Footer />
     </>
   );
+
+  // return (
+  //   <>
+  //     <HookForm />
+  //   </>
+  // );
+  
 };
 
 export default App;
-
 
 // context = data is export directly to any file of a project
 // app is wrap around Usercontext so make children of UserContext and pass in App.jsx
