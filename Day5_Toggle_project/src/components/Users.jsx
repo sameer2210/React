@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Registered_user = () => {
+const Users = () => {
   return (
     <div>
       
@@ -8,4 +8,4 @@ const Registered_user = () => {
   )
 }
 
-export default Registered_user
+export default Users
