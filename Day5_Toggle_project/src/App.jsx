@@ -6,16 +6,40 @@ import Users from "./components/Users";
 
 const App = () => {
   const [toggler, settoggler] = useState(true);
+  const [users,setusers] = useState([]);
+  // const [data, setdata] = useState([]);
+
+  // const submitHandler = (e) => {
+  //   e.preventDefault();
+  //   const user = {
+  //     name: e.target.name.value,
+  //     email: e.target.email.value,
+  //     password: e.target.password.value
+  //   };
+    // setdata((prev) => [...prev, user]);
+    // console.log(data);
+  // };
+
   return (
-    <main className="h-screen w-screen overflow-y-auto bg-gray-900 text-2xl text-white p-10 ">
-      <div className="w-1/3">
+    <main className="h-screen w-screen flex justify-center space-x-30 items-start overflow-y-auto bg-gray-900 text-xl text-white p-10 ">
+      <div className="w-3/4 ">
         {toggler ? (
-          <SignUp toggler={toggler} settoggler={settoggler} />
+          <SignUp
+            // submitHandler={submitHandler}
+            users={users}
+            setusers={setusers}
+            toggler={toggler}
+            settoggler={settoggler}
+          />
         ) : (
-          <SignIN toggler={toggler} settoggler={settoggler} />
+          <SignIN
+            // submitHandler={submitHandler}
+            toggler={toggler}
+            settoggler={settoggler}
+          />
         )}
       </div>
-      <Users />
+      {/* <Users data={data} /> */}
     </main>
   );
 };

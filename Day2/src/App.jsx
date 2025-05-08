@@ -13,7 +13,7 @@ const App = () => {
       {/* <NameChange /> */}
       {/* <ObjectMap /> */}
       {/* <ObjectJson /> */}
-      <FormEx />
+      {/* <FormEx /> */}
       <FormLive />
 
       <br />

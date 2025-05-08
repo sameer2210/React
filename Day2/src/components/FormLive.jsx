@@ -21,7 +21,7 @@ const FormLive = () => {
 
     return (
         <div>
-            <label htmlFor="">name</label>
+            <label>name</label>
             <input
                 className="text-black border-black border-2 p-1"
                 type="text"
