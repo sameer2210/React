@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import SignIN from "./components/SignIn";
 import SignUp from "./components/SignUp";
@@ -6,7 +5,7 @@ import Users from "./components/Users";
 
 const App = () => {
   const [toggler, settoggler] = useState(true);
-  const [users,setusers] = useState([]);
+  const [users, setusers] = useState([]);
   // const [data, setdata] = useState([]);
 
   // const submitHandler = (e) => {
@@ -16,8 +15,8 @@ const App = () => {
   //     email: e.target.email.value,
   //     password: e.target.password.value
   //   };
-    // setdata((prev) => [...prev, user]);
-    // console.log(data);
+  //   setdata((prev) => [...prev, user]);
+  //   console.log(data);
   // };
 
   return (
@@ -34,12 +33,15 @@ const App = () => {
         ) : (
           <SignIN
             // submitHandler={submitHandler}
+            users={users}
+            setusers={setusers}
             toggler={toggler}
             settoggler={settoggler}
           />
         )}
       </div>
       {/* <Users data={data} /> */}
+      <Users users={users} setusers={setusers} />
     </main>
   );
 };
