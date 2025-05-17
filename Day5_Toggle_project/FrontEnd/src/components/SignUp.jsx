@@ -2,6 +2,8 @@ import React from "react";
 import { nanoid } from "nanoid";
 import { useForm } from "react-hook-form";
 import SignIN from "./SignIn";
+import { toast } from "react-toastify";
+import axios from "axios";
 
 const SignUp = (props) => {
   // const { toggler, settoggler, submitHandler } = props;
@@ -14,15 +16,34 @@ const SignUp = (props) => {
     formState: { errors }
   } = useForm();
 
-  const submitHandler = (data) => {
-    data.id = nanoid();
-    const copyusers = [...users];
-    copyusers.push(data);
-    setusers(copyusers);
-    reset();
-
-    // setusers([...users,data])        //or
+  const submitHandler = async (data) => {
+    // const ispresent = users.find((user) => user.email === data.email);       //if frontend only use
+    // if (ispresent) {
+    //   toast.error("User already Exists!");
+    //   reset();
+    // } else {
+    //   data.id = nanoid();
+    //   setusers([...users, data]);           // or
+    //      // const copyusers = [...users];
+    //      // copyusers.push(data);
+    //      // setusers(copyusers);
+    //   toast.success("User successfully register!");
+    //   reset();
+    // }
     // console.log(data);
+
+    try {
+      data.id = nanoid();
+      const response = await axios.post("http://localhost:3000/register", data);
+      console.log("server response", response.data);
+      toast.success("User registered successfully!");
+      const usersResponse = await axios.get("http://localhost:3000/users");
+      setusers(usersResponse.data);
+      reset();
+    } catch (err) {
+      console.error("Registration error:", err);
+      toast.error("Failed to register user");
+    }
   };
   console.log(users);
 
@@ -39,9 +60,9 @@ const SignUp = (props) => {
       <input
         className="block mb-4 font-thin border-b outline-0 p-2 w-full text-2xl"
         type="text"
-        {...register("name")}
+        {...register("userName")}
         required
-        name="name"
+        name="userName"
         placeholder="Name"
       />
       <input
@@ -64,13 +85,15 @@ const SignUp = (props) => {
         placeholder="password"
       />
       {errors.password?.type === "minLength" ? (
-        <p className="text-red-500 text-sm mt-1">atleast 5 characters required</p>
+        <p className="text-red-500 text-sm mt-1">
+          atleast 5 characters required
+        </p>
       ) : (
         ""
       )}
 
       <button className="p-2 border rounded-lg px-8 mt-7 mb-3 hover:bg-amber-50 hover:text-black duration-250 ">
-        SignUp
+        Register
       </button>
       <br />
       <small className="font-mono ">

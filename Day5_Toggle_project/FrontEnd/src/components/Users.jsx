@@ -1,4 +1,6 @@
-import React from "react";
+// ---------------------------------------------------Aayush code --------------------------------------------------
+
+// import React from "react";
 
 // const Users = ({ data }) => {
 //   return (
@@ -23,14 +25,80 @@ import React from "react";
 
 // export default Users;
 
-const Users = (props) => {
-  const { users, setusers } = props;
+//------------------------------------------------Bhaiya----------------------------------------------------------
 
-  const deletehandler = (id) => {
-    const copyusers = [...users];
-    const filteredusers = copyusers.filter((user) => user.id !== id);
-    setusers(filteredusers);
+// import React from "react";
+
+// const Users = (props) => {
+//   const { users, setusers } = props;
+
+//   const deletehandler = (id) => {
+//     const copyusers = [...users];
+//     const filteredusers = copyusers.filter((user) => user.id !== id);
+//     setusers(filteredusers);
+//   };
+
+//   const userlist = users.map((user) => {
+//     return (
+//       <li
+//         key={user.id}
+//         className="flex items-center justify-between bg-gray-700 rounded p-2 font-thin mb-3"
+//       >
+//         <p>
+//           <span className="block text-3xl mb-1">{user.userName}</span>
+//           <small className="text-lg">{user.email}</small>
+//         </p>
+//         <span
+//           onClick={() => deletehandler(user.id)}
+//           className="hover:cursor-pointer font-normal text-red-500"
+//         >
+//           Delete
+//         </span>
+//       </li>
+//     );
+//   });
+
+//   return (
+//     <ul className="w-[30%] ">
+//       {users.length !== 0 ? (
+//         userlist
+//       ) : (
+//         <h1 className="text-center mt-10 text-3xl">User not found</h1>
+//       )}
+//     </ul>
+//   );
+// };
+
+// export default Users;
+
+// ----------------------------------------------------me----------------------------------------------------------
+
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+
+const Users = () => {
+  const [users, setusers] = useState([]);
+
+  const fetchUsers = async () => {
+    try {
+      const res = await axios.get("http://localhost:3000/users");
+      setusers(res.data);
+    } catch (err) {
+      console.log("Error fetching users:", err);
+    }
   };
+
+  const deletehandler = async (id) => {
+    try {
+      await axios.delete(`http://localhost:3000/users/${id}`);
+      setusers(users.filter((user) => user._id !== id));
+    } catch (err) {
+      console.error("Error deleting user:", err);
+    }
+  };
+  useEffect(() => {
+    fetchUsers();
+  }, []);
 
   const userlist = users.map((user) => {
     return (
@@ -39,11 +107,11 @@ const Users = (props) => {
         className="flex items-center justify-between bg-gray-700 rounded p-2 font-thin mb-3"
       >
         <p>
-          <span className="block text-3xl mb-1">{user.name}</span>
+          <span className="block text-3xl mb-1">{user.userName}</span>
           <small className="text-lg">{user.email}</small>
         </p>
         <span
-          onClick={() => deletehandler(user.id)}
+          onClick={() => deletehandler(user._id)}
           className="hover:cursor-pointer font-normal text-red-500"
         >
           Delete

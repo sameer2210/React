@@ -9,15 +9,22 @@ const SignIN = (props) => {
   // const { toggler, settoggler, submitHandler } = props;
 
   const { toggler, settoggler, users, setusers } = props;
-  const { register, handleSubmit, reset } = useForm();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors }
+  } = useForm();
 
   const submitHandler = (data) => {
     console.log(data);
     const ispresent = users.find(
-      (user) => user.email === data.email && user.password === data.password
+      (user) =>
+        user.email.trim() === data.email.trim() &&
+        user.password === data.password
     );
     if (ispresent) {
-      toast.success("User Already Exists!");
+      toast.success("Login successful!");
       reset();
     } else {
       toast.error("User not Found!");
@@ -42,6 +49,7 @@ const SignIN = (props) => {
         name="email"
         placeholder="email"
       />
+      {errors.email && <p className="text-red-500">{errors.email.message}</p>}
       <input
         className="block mb-6 font-thin border-b outline-0 p-2 w-full text-2xl"
         type="password"
@@ -50,8 +58,11 @@ const SignIN = (props) => {
         name="password"
         placeholder="password"
       />
+      {errors.password && (
+        <p className="text-red-500">{errors.password.message}</p>
+      )}
       <button className="p-2 border rounded-lg px-8 mt-7 mb-3 hover:bg-amber-50 hover:text-black duration-250 ">
-        SignIn
+        Sign In
       </button>
       <br />
       <small className="font-mono ">
@@ -61,7 +72,7 @@ const SignIN = (props) => {
           onClick={() => settoggler(!toggler)}
           type="button"
         >
-          SignUp
+          Sign Up
         </button>
       </small>
     </form>
