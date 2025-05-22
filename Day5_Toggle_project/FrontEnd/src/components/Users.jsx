@@ -78,13 +78,17 @@ import React, { useEffect, useState } from "react";
 
 const Users = () => {
   const [users, setusers] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const fetchUsers = async () => {
+    setIsLoading(true);
     try {
       const res = await axios.get("http://localhost:3000/users");
       setusers(res.data);
     } catch (err) {
       console.log("Error fetching users:", err);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -96,6 +100,7 @@ const Users = () => {
       console.error("Error deleting user:", err);
     }
   };
+
   useEffect(() => {
     fetchUsers();
   }, []);
@@ -103,31 +108,49 @@ const Users = () => {
   const userlist = users.map((user) => {
     return (
       <li
-        key={user.id}
-        className="flex items-center justify-between bg-gray-700 rounded p-2 font-thin mb-3"
+        key={user._id}
+        className="flex flex-col sm:flex-row sm:items-center justify-between bg-gray-800 hover:bg-gray-700 rounded-lg p-4 mb-4 transition-all duration-300 shadow-md"
       >
-        <p>
-          <span className="block text-3xl mb-1">{user.userName}</span>
-          <small className="text-lg">{user.email}</small>
-        </p>
-        <span
+        <div className="mb-2 sm:mb-0">
+          <h3 className="text-2xl sm:text-3xl font-medium mb-1 text-white">
+            {user.userName}
+          </h3>
+          <p className="text-md sm:text-lg text-gray-300">{user.email}</p>
+        </div>
+        <button
           onClick={() => deletehandler(user._id)}
-          className="hover:cursor-pointer font-normal text-red-500"
+          className="self-end sm:self-center px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-md transition-colors duration-300 text-sm font-medium"
         >
           Delete
-        </span>
+        </button>
       </li>
     );
   });
 
   return (
-    <ul className="w-[30%] ">
-      {users.length !== 0 ? (
-        userlist
+    <div className="w-1/2 px-4 py-8">
+      <h2 className="text-3xl font-bold mb-6 text-white">User Management</h2>
+      {isLoading ? (
+        <div className="flex justify-center items-center h-40">
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-white"></div>
+        </div>
       ) : (
-        <h1 className="text-center mt-10 text-3xl">User not found</h1>
+        <ul className="w-full">
+          {users.length !== 0 ? (
+            userlist
+          ) : (
+            <div className="text-center p-8 bg-gray-800 rounded-lg">
+              <h1 className="text-2xl sm:text-3xl font-medium text-white">
+                No users found
+              </h1>
+              <p className="text-gray-400 mt-2">
+                Try adding some users to get started
+              </p>
+            </div>
+          )}
+        </ul>
       )}
-    </ul>
+    </div>
   );
 };
 
