@@ -96,14 +96,14 @@ const Users = ({ users, setusers }) => {
       className="flex flex-col sm:flex-row sm:items-center justify-between bg-stone-800 hover:bg-stone-700 rounded-lg p-4 mb-4 transition-all duration-300 shadow-md"
     >
       <div className="mb-2 sm:mb-0">
-        <h3 className="text-xl sm:text-2xl font-semibold text-white">
+        <h3 className="text-xl sm:text-2xl font-semibold font-mono text-white">
           {user.userName}
         </h3>
-        <p className="text-gray-300 text-md sm:text-lg">{user.email}</p>
+        <p className="text-gray-400 font-sans  text-md sm:text-lg">{user.email}</p>
       </div>
       <button
         onClick={() => deletehandler(user._id)}
-        className="px-4 py-2 bg-amber-700 text-white hover:bg-amber-600 hover:shadow-lg  transform hover:scale-105 rounded-md text-sm font-medium transition-colors duration-300"
+        className="px-4 py-2 bg-gradient-to-br from-amber-700 to-amber-500 text-white hover:bg-amber-600 hover:shadow-lg  transform hover:scale-105 rounded-md text-sm font-medium transition-colors duration-300"
       >
         Delete
       </button>
@@ -113,7 +113,7 @@ const Users = ({ users, setusers }) => {
   if (!users) return null;
 
   return (
-    <div className="h-[580px] mt-2 w-1/3 overflow-y-auto p-6 ">
+    <div className="h-full w-full overflow-y-auto p-6 ">
       <h2 className="text-3xl md:text-4xl font-black mb-7 font-mono text-white">
         User Management
       </h2>
@@ -126,7 +126,7 @@ const Users = ({ users, setusers }) => {
           {users.length !== 0 ? (
             userlist
           ) : (
-            <div className="text-center p-8 bg-gray-800 rounded-lg">
+            <div className="text-center p-8 bg-stone-600 rounded-lg">
               <h1 className="text-2xl sm:text-3xl font-medium text-white">
                 No users found
               </h1>

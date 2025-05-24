@@ -35,11 +35,11 @@ const SignIN = (props) => {
     <form
       // onSubmit={submitHandler}
       onSubmit={handleSubmit(submitHandler)}
-      className="w-full md:w-4/5 lg:w-2/3 xl:w-1/2 mx-auto p-4 md:p-8 bg-gray-200 rounded-lg shadow-md mt-8"
+      className="w-full md:w-4/5 xl:w-1/2 mx-auto mb-16 p-4 md:px-8 md:py-8 rounded-lg mt-10 "
     >
       <h1 className="text-3xl md:text-4xl font-black mb-7 font-mono text-gray-800">
         Let's start the <br />
-        <span className="text-amber-500">journey</span>
+        <span className="text-amber-700">journey</span>
       </h1>
       <input
         className="block mb-3 font-thin border-b text-black border-gray-300 outline-0 p-2 w-full text-xl md:text-2xl focus:border-amber-500 transition-all duration-300"
@@ -65,7 +65,7 @@ const SignIN = (props) => {
           {errors.password.message}
         </p>
       )}
-      <button className="p-3 border border-amber-500 rounded-lg px-8 mt-7 mb-3 bg-amber-500 text-white hover:bg-amber-600 hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+      <button className="p-3 border border-amber-500 rounded-lg px-8 mt-7 mb-3 bg-gradient-to-br from-amber-700 to-amber-500 text-white hover:bg-amber-600 hover:shadow-lg transition-all duration-300 transform hover:scale-105">
         Sign In
       </button>
       <br />
@@ -73,7 +73,7 @@ const SignIN = (props) => {
         <small className="font-mono text-gray-600">
           Don't have an account ?{" "}
           <button
-            className="text-amber-500 cursor-pointer hover:text-amber-400 font-medium"
+            className="text-amber-600 cursor-pointer hover:text-amber-400 font-medium"
             onClick={() => settoggler(!toggler)}
             type="button"
           >

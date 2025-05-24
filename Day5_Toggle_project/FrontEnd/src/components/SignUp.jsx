@@ -68,15 +68,15 @@ const SignUp = (props) => {
   console.log(users);
 
   return (
-    <div className="min-h-screen flex items-center justify-center rounded  ">
+    <div className="min-h-screen flex items-center justify-center rounded ">
       <form
         // onSubmit={submitHandler}
         onSubmit={handleSubmit(submitHandler)}
-        className="w-full md:w-4/5 xl:w-1/2 mx-auto bg-gray-200 mb-16 p-4 md:px-8 md:py-8 rounded-lg shadow-md"
+        className="w-full md:w-4/5 xl:w-1/2 mx-auto mb-16 p-4 md:px-8 md:py-8 rounded-lg "
       >
         <h1 className="text-3xl md:text-4xl font-black mb-7 font-mono text-gray-800">
           Register to the <br />
-          <span className="text-amber-700">journey</span>
+          <span className="text-amber-600">journey</span>
         </h1>
 
         <input
@@ -120,7 +120,7 @@ const SignUp = (props) => {
         <button
           // onClick={submitHandler}
           type="submit"
-          className="p-3 border border-amber-100 rounded-lg px-8 mt-7 mb-3 bg-amber-700 text-white hover:bg-amber-600 hover:shadow-lg transition-all duration-300 transform hover:scale-105"
+          className="p-3 border border-amber-100 rounded-lg px-8 mt-7 mb-3 bg-gradient-to-br from-amber-700 to-amber-500 text-white hover:bg-amber-600 hover:shadow-lg transition-all duration-300 transform hover:scale-105"
         >
           Register
         </button>
@@ -131,7 +131,7 @@ const SignUp = (props) => {
           <small className="font-mono text-gray-600">
             Already have an account ?{" "}
             <button
-              className="text-amber-700 cursor-pointer hover:text-amber-400 font-medium"
+              className="text-amber-600 cursor-pointer hover:text-amber-400 font-medium"
               onClick={() => settoggler(!toggler)}
               type="button"
             >

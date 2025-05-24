@@ -37,8 +37,9 @@ const App = () => {
   }, []);
 
   return (
-    <main className="h-screen w-screen flex justify-center space-x-25 items-start overflow-hidden bg-stone-500 text-xl text-white px-6">
-      <div className="w-2/4">
+    <main className="lg:h-screen lg:w-screen lg:flex  lg:justify-center lg:items-start sm:items-center overflow-hidden text-xl text-white ">
+      
+      <div className="w-1/2">
         {toggler ? (
           <SignUp
             // submitHandler={submitHandler}
@@ -58,8 +59,12 @@ const App = () => {
           />
         )}
       </div>
+
+      <div className="w-[570px] h-[560px] mt-8 px-12 py-4 rounded-2xl bg-gradient-to-br from-amber-700 to-amber-500 ">
       {/* <Users data={data} /> */}
       <Users users={users} fetchUsers={fetchUsers} setusers={setusers} />
+      </div>
+
     </main>
   );
 };
