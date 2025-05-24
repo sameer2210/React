@@ -2,17 +2,17 @@ import express from "express";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { validationResult } from "express-validator";
-import userModel from '../models/user.model.js'
+import userModel from "../models/user.model.js";
 
 export const getUserCreate = (req, res) => {
   const { error } = req.query;
-  res.render("register", { errors });
+  res.render("SignUp", { errors });
 };
 
 export const postUserCreate = async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    return res.redirect("/register ? errors = Invalid data, try again!");
+    return res.redirect("/SignUp ? errors = Invalid data, try again!");
   }
 
   try {
@@ -20,7 +20,7 @@ export const postUserCreate = async (req, res) => {
 
     const existUser = await userModel.findOne({ email });
     if (existUser) {
-      return res.redirect("/register ? errors = User already exists");
+      return res.redirect("/SignUp ? errors = User already exists");
     }
 
     const hashpassword = await bcrypt.hash(password, 10);
@@ -42,12 +42,10 @@ export const postUserCreate = async (req, res) => {
   }
 };
 
-
-
 // Get all users
 export const getAllUsers = async (req, res) => {
   try {
-    const users = await userModel.find().select("-password");     // don't return password
+    const users = await userModel.find().select("-password"); // don't return password
     res.status(200).json(users);
   } catch (err) {
     console.error("Error fetching users:", err);

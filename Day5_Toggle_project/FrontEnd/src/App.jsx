@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SignIN from "./components/SignIn";
 import SignUp from "./components/SignUp";
 import Users from "./components/Users";
+import axios from "axios";
 
 const App = () => {
   const [toggler, settoggler] = useState(true);
   const [users, setusers] = useState([]);
+
   // const [data, setdata] = useState([]);
 
   // const submitHandler = (e) => {
@@ -19,14 +21,30 @@ const App = () => {
   //   console.log(data);
   // };
 
+  //  fetchUsers function
+  const fetchUsers = async () => {
+    try {
+      const res = await axios.get("http://localhost:3000/users");
+      setusers(res.data);
+      return res.data; // return data for logging/debug
+    } catch (err) {
+      console.error("Error fetching users:", err);
+    }
+  };
+
+  useEffect(() => {
+    fetchUsers(); //  initial load
+  }, []);
+
   return (
-    <main className="h-screen w-screen flex justify-center space-x-30 items-start overflow-y-auto bg-gray-900 text-xl text-white p-10 ">
-      <div className="w-3/4 ">
+    <main className="h-screen w-screen flex justify-center space-x-25 items-start overflow-hidden bg-stone-500 text-xl text-white px-6">
+      <div className="w-2/4">
         {toggler ? (
           <SignUp
             // submitHandler={submitHandler}
             users={users}
             setusers={setusers}
+            fetchUsers={fetchUsers} //  pass it
             toggler={toggler}
             settoggler={settoggler}
           />
@@ -41,7 +59,7 @@ const App = () => {
         )}
       </div>
       {/* <Users data={data} /> */}
-      <Users users={users} setusers={setusers} />
+      <Users users={users} fetchUsers={fetchUsers} setusers={setusers} />
     </main>
   );
 };
