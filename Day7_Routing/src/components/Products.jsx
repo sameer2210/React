@@ -4,8 +4,8 @@ import { Outlet, useNavigate } from "react-router-dom";
 const Products = () => {
   const navigate = useNavigate();
 
-  const navigateHandler = () => {
-    navigate("/products/detail");
+  const navigateHandler = (productId) => {
+    navigate(`/products/detail/${productId}`);
   };
 
   const navigateToDescription = (productId) => {
@@ -19,13 +19,13 @@ const Products = () => {
           <span className="mb-4 text-4xl font-thin">Product 1</span>
           <div>
             <button
-              onClick={navigateHandler}                      // Fixed: Actually call the function
+              onClick={() => navigateHandler("product-1")} // Fixed: Actually call the function
               className="mr-16 bg-red-400 text-white rounded px-4 py-2"
             >
               Products Details
             </button>
             <button
-              onClick={() => navigateToDescription("product-1")}       // Fixed: Just pass product ID
+              onClick={() => navigateToDescription("product-1")} // Fixed: Just pass product ID
               className="bg-red-400 text-white rounded px-4 py-2"
             >
               Description
@@ -37,7 +37,7 @@ const Products = () => {
           <span className="mb-4 text-4xl font-thin">Product 2</span>
           <div>
             <button
-              onClick={navigateHandler}                                            // Fixed: Actually call the function
+              onClick={() => navigateHandler("product-2")} // Fixed: Actually call the function
               className="mr-16 bg-red-400 text-white rounded px-4 py-2"
             >
               Products Details
@@ -55,7 +55,7 @@ const Products = () => {
           <span className="mb-4 text-4xl font-thin">Product 3</span>
           <div>
             <button
-              onClick={navigateHandler} // Fixed: Actually call the function
+              onClick={() => navigateHandler("product-3")} // Fixed: Actually call the function
               className="mr-16 bg-red-400 text-white rounded px-4 py-2"
             >
               Products Details

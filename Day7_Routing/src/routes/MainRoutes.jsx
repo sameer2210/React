@@ -13,8 +13,9 @@ const MainRoutes = () => {
       <Routes className="flex justify-center gap-8 text-2xl p-4  ">
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />}>
-          <Route path="/products/detail" element={<ProductsDetail />} />
-          <Route path="/products/detail/:name" element={<ProductDesc />} />
+          <Route path="detail/" element={<ProductsDetail />} />
+          {/* <Route path="detail/:name" element={<ProductsDetail />} /> */}
+          <Route path="detail/:name" element={<ProductDesc />} />
         </Route>
         <Route path="/services" element={<Services />} />
         <Route path="/about" element={<About />} />
