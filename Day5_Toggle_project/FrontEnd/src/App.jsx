@@ -37,8 +37,7 @@ const App = () => {
   }, []);
 
   return (
-    <main className="lg:h-screen lg:w-screen lg:flex  lg:justify-center lg:items-start sm:items-center overflow-hidden text-xl text-white ">
-      
+    <main className="lg:h-screen lg:w-screen lg:flex lg:justify-center lg:items-start sm:items-center overflow-hidden bg-[#fffbef] text-xl text-white ">
       <div className="w-1/2">
         {toggler ? (
           <SignUp
@@ -60,11 +59,10 @@ const App = () => {
         )}
       </div>
 
-      <div className="w-[570px] h-[560px] mt-8 px-12 py-4 rounded-2xl bg-gradient-to-br from-amber-700 to-amber-500 ">
-      {/* <Users data={data} /> */}
-      <Users users={users} fetchUsers={fetchUsers} setusers={setusers} />
+      <div className="w-[570px] h-[560px] mt-8 px-12 py-4 rounded-2xl bg-[#113946] ">
+        {/* <Users data={data} /> */}
+        <Users users={users} fetchUsers={fetchUsers} setusers={setusers} />
       </div>
-
     </main>
   );
 };

@@ -39,10 +39,10 @@ const SignIN = (props) => {
     >
       <h1 className="text-3xl md:text-4xl font-black mb-7 font-mono text-gray-800">
         Let's start the <br />
-        <span className="text-amber-700">journey</span>
+        <span className="text]">journey</span>
       </h1>
       <input
-        className="block mb-3 font-thin border-b text-black border-gray-300 outline-0 p-2 w-full text-xl md:text-2xl focus:border-amber-500 transition-all duration-300"
+        className="block mb-3 font-thin border-b text-black border-gray-300 outline-0 p-2 w-full text-xl md:text-2xl focus:border-[#113946]transition-all duration-300"
         type="text"
         {...register("email", { required: "Email is required" })}
         required
@@ -53,7 +53,7 @@ const SignIN = (props) => {
         <p className="text-red-500 text-sm mt-1 mb-2">{errors.email.message}</p>
       )}
       <input
-        className="block mb-6 font-thin border-b text-black border-gray-300 outline-0 p-2 w-full text-xl md:text-2xl focus:border-amber-500 transition-all duration-300"
+        className="block mb-6 font-thin border-b text-black border-gray-300 outline-0 p-2 w-full text-xl md:text-2xl focus:border-[#113946] transition-all duration-300"
         type="password"
         {...register("password", { required: "Password is required" })}
         required
@@ -65,7 +65,7 @@ const SignIN = (props) => {
           {errors.password.message}
         </p>
       )}
-      <button className="p-3 border border-amber-500 rounded-lg px-8 mt-7 mb-3 bg-gradient-to-br from-amber-700 to-amber-500 text-white hover:bg-amber-600 hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+      <button className="p-3 border-1 border-[#BCA37F] rounded-lg px-8 mt-7 mb-3 bg-[#113946] text-white hover:shadow-lg transition-all duration-300 transform hover:scale-105">
         Sign In
       </button>
       <br />
@@ -73,7 +73,7 @@ const SignIN = (props) => {
         <small className="font-mono text-gray-600">
           Don't have an account ?{" "}
           <button
-            className="text-amber-600 cursor-pointer hover:text-amber-400 font-medium"
+            className="text-[#113946] cursor-pointer hover:text-[#BCA37F] font-medium"
             onClick={() => settoggler(!toggler)}
             type="button"
           >

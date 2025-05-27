@@ -93,7 +93,7 @@ const Users = ({ users, setusers }) => {
   const userlist = users.map((user) => (
     <li
       key={user._id}
-      className="flex flex-col sm:flex-row sm:items-center justify-between bg-stone-800 hover:bg-stone-700 rounded-lg p-4 mb-4 transition-all duration-300 shadow-md"
+      className="flex flex-col sm:flex-row sm:items-center justify-between border-1 border-grey-50 hover:border-2 hover:bg-[#1b2b31] rounded-lg p-4 mb-4 transition-all duration-300 shadow-md"
     >
       <div className="mb-2 sm:mb-0">
         <h3 className="text-xl sm:text-2xl font-semibold font-mono text-white">
@@ -103,7 +103,7 @@ const Users = ({ users, setusers }) => {
       </div>
       <button
         onClick={() => deletehandler(user._id)}
-        className="px-4 py-2 bg-gradient-to-br from-amber-700 to-amber-500 text-white hover:bg-amber-600 hover:shadow-lg  transform hover:scale-105 rounded-md text-sm font-medium transition-colors duration-300"
+        className="px-4 py-2 bg-gradient-to-br from-[#68767a] to-[#0d2c36] text-white hover:bg-gray-200 hover:shadow-lg  transform hover:scale-105 rounded-md text-sm font-medium transition-colors duration-300"
       >
         Delete
       </button>
@@ -113,8 +113,8 @@ const Users = ({ users, setusers }) => {
   if (!users) return null;
 
   return (
-    <div className="h-full w-full overflow-y-auto p-6 ">
-      <h2 className="text-3xl md:text-4xl font-black mb-7 font-mono text-white">
+    <div className="h-[80vh] w-full overflow-y-auto p-6  mt-8 ">
+      <h2 className="text-3xl md:text-4xl font-black mb-7 fixed top-10 right-59 font-mono text-white">
         User Management
       </h2>
       {isLoading ? (
@@ -126,7 +126,7 @@ const Users = ({ users, setusers }) => {
           {users.length !== 0 ? (
             userlist
           ) : (
-            <div className="text-center p-8 bg-stone-600 rounded-lg">
+            <div className="text-center p-8 bg-[#103643] rounded-lg">
               <h1 className="text-2xl sm:text-3xl font-medium text-white">
                 No users found
               </h1>

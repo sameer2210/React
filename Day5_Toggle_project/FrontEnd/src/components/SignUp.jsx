@@ -76,11 +76,11 @@ const SignUp = (props) => {
       >
         <h1 className="text-3xl md:text-4xl font-black mb-7 font-mono text-gray-800">
           Register to the <br />
-          <span className="text-amber-600">journey</span>
+          <span className="text-[#113946]">journey</span>
         </h1>
 
         <input
-          className="block mb-3 font-thin border-b text-black border-gray-300 outline-0 p-2 w-full text-xl md:text-2xl focus:border-amber-500 transition-all duration-300"
+          className="block mb-3 font-thin border-b text-black border-gray-300 outline-0 p-2 w-full text-xl md:text-2xl focus:border-[#113946] transition-all duration-300"
           type="text"
           {...register("userName")}
           required
@@ -92,7 +92,7 @@ const SignUp = (props) => {
         )}
 
         <input
-          className="block mb-3 font-thin border-b text-black border-gray-300 outline-0 p-2 w-full text-xl md:text-2xl focus:border-amber-500 transition-all duration-300"
+          className="block mb-3 font-thin border-b text-black border-gray-300 outline-0 p-2 w-full text-xl md:text-2xl focus:border-[#113946] transition-all duration-300"
           type="text"
           required
           {...register("email", { required: "Email is required" })}
@@ -104,7 +104,7 @@ const SignUp = (props) => {
         )}
 
         <input
-          className="block mb-5 font-thin border-b text-black border-gray-300 outline-0 p-2 w-full text-xl md:text-2xl focus:border-amber-500 transition-all duration-300"
+          className="block mb-5 font-thin border-b text-black border-gray-300 outline-0 p-2 w-full text-xl md:text-2xl focus:border-[#113946] transition-all duration-300"
           type="password"
           {...register("password", { minLength: 5 })}
           required
@@ -120,7 +120,7 @@ const SignUp = (props) => {
         <button
           // onClick={submitHandler}
           type="submit"
-          className="p-3 border border-amber-100 rounded-lg px-8 mt-7 mb-3 bg-gradient-to-br from-amber-700 to-amber-500 text-white hover:bg-amber-600 hover:shadow-lg transition-all duration-300 transform hover:scale-105"
+          className="p-3 border border-amber-100 rounded-lg px-8 mt-7 mb-3 bg-gradient-to-br from-[#113946] to-[#113946] text-white  hover:shadow-lg transition-all duration-300 transform hover:scale-105"
         >
           Register
         </button>
@@ -131,7 +131,7 @@ const SignUp = (props) => {
           <small className="font-mono text-gray-600">
             Already have an account ?{" "}
             <button
-              className="text-amber-600 cursor-pointer hover:text-amber-400 font-medium"
+              className="text-[#113946] cursor-pointer hover:text-[#948979] font-medium hover:scale-98"
               onClick={() => settoggler(!toggler)}
               type="button"
             >
@@ -145,3 +145,6 @@ const SignUp = (props) => {
 };
 
 export default SignUp;
+
+
+
