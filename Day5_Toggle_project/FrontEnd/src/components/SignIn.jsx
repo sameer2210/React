@@ -42,7 +42,7 @@ const SignIN = (props) => {
         <span className="text]">journey</span>
       </h1>
       <input
-        className="block mb-3 font-thin border-b text-black border-gray-300 outline-0 p-2 w-full text-xl md:text-2xl focus:border-[#113946]transition-all duration-300"
+        className="block mb-3 font-thin border-b text-black rounded-xl  border-gray-300 outline-0 p-2 w-full text-xl md:text-2xl focus:border-[#113946]transition-all duration-300"
         type="text"
         {...register("email", { required: "Email is required" })}
         required
@@ -53,7 +53,7 @@ const SignIN = (props) => {
         <p className="text-red-500 text-sm mt-1 mb-2">{errors.email.message}</p>
       )}
       <input
-        className="block mb-6 font-thin border-b text-black border-gray-300 outline-0 p-2 w-full text-xl md:text-2xl focus:border-[#113946] transition-all duration-300"
+        className="block mb-6 font-thin border-b text-black rounded-xl border-gray-300 outline-0 p-2 w-full text-xl md:text-2xl focus:border-[#113946] transition-all duration-300"
         type="password"
         {...register("password", { required: "Password is required" })}
         required

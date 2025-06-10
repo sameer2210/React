@@ -80,7 +80,7 @@ const SignUp = (props) => {
         </h1>
 
         <input
-          className="block mb-3 font-thin border-b text-black border-gray-300 outline-0 p-2 w-full text-xl md:text-2xl focus:border-[#113946] transition-all duration-300"
+          className="block mb-3 font-thin border-b text-black rounded-xl  border-gray-300 outline-0 p-2 w-full text-xl md:text-2xl focus:border-[#113946] transition-all duration-300"
           type="text"
           {...register("userName")}
           required
@@ -92,7 +92,7 @@ const SignUp = (props) => {
         )}
 
         <input
-          className="block mb-3 font-thin border-b text-black border-gray-300 outline-0 p-2 w-full text-xl md:text-2xl focus:border-[#113946] transition-all duration-300"
+          className="block mb-3 font-thin border-b text-black rounded-xl  border-gray-300 outline-0 p-2 w-full text-xl md:text-2xl focus:border-[#113946] transition-all duration-300"
           type="text"
           required
           {...register("email", { required: "Email is required" })}
@@ -104,7 +104,7 @@ const SignUp = (props) => {
         )}
 
         <input
-          className="block mb-5 font-thin border-b text-black border-gray-300 outline-0 p-2 w-full text-xl md:text-2xl focus:border-[#113946] transition-all duration-300"
+          className="block mb-5 font-thin border-b text-black rounded-xl  border-gray-300 outline-0 p-2 w-full text-xl md:text-2xl focus:border-[#113946] transition-all duration-300"
           type="password"
           {...register("password", { minLength: 5 })}
           required
