@@ -2,16 +2,14 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   data: [
-    [
-      {
-        id: 0,
-        title: "string",
-        price: 0.1,
-        description: "string",
-        category: "string",
-        image: "http://example.com"
-      }
-    ]
+    {
+      id: 0,
+      title: "string",
+      price: 0.1,
+      description: "string",
+      category: "string",
+      image: "http://example.com"
+    }
   ]
 };
 
