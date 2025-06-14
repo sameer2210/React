@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { create } from "./reducers/productSlice";
 import { asyncloadproduct } from "./actions/productAction";
+import ReviewComment from "./components/ReviewComment";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -58,6 +59,9 @@ const App = () => {
       >
         load Products
       </button>
+
+      <ReviewComment/>
+
     </div>
   );
 };
