@@ -16,29 +16,40 @@ const ReviewComment = () => {
     dispatch(addReview(newReview));
   };
 
-  useEffect(() => {
+  const showReview = () => {
     dispatch(fetchReview());
-  }, [dispatch]);
+  };
+
+  // useEffect(() => {
+  //   dispatch(fetchReview());
+  // }, [dispatch]);
 
   console.log(reviews);
 
   return (
     <div className="h-full w-full bg-gray-100 p-6">
-      <h1 className="px-2 py-1 bg-gray-800 text-white rounded-xl font-semibold">
+      <h1 className="px-2 py-1 bg-gray-600 text-white rounded-xl font-semibold">
         Review of users as Comments{" "}
       </h1>
       <button
-        className="mt-4 px-4 py-2  bg-blue-500 text-white rounded hover:bg-blue-600"
+        className="mt-4 px-4 py-2  bg-gray-800 text-white rounded-2xl"
         onClick={handleReview}
       >
-        Add User
+        Add Review
+      </button>
+
+      <button
+        className="mt-4 px-4 py-2  bg-gray-800 text-white rounded-2xl ml-2"
+        onClick={showReview}
+      >
+        show Review
       </button>
 
       {/* --------------------------------------------------------------------------------------------------- */}
 
       <li
         key={reviews.id}
-        className="p-2 bg-white shadow rounded mb-2 flex justify-between items-center"
+        className="p-2 mt-5 bg-white shadow rounded mb-2 flex justify-between items-center"
       >
         <span>{reviews.body}</span>
         <button
@@ -52,13 +63,19 @@ const ReviewComment = () => {
       {/*------------------------------------------------------------------------------------------- */}
 
       {/* Show reviews if available */}
-      <ul className="mt-4">
+      <ul className="mt-5">
         {reviews.length === 0 ? (
           <li>No reviews yet.</li>
         ) : (
           reviews.map((review) => (
-            <li key={review.id} className="p-2 bg-white shadow rounded mb-2">
-              {review.body}
+            <li key={review.id} className="p-2 bg-white shadow rounded mb-2 flex justify-between items-center">
+              <span>{review.body}</span>
+              <button
+                onClick={() => dispatch(deleteReview(review.id))}
+                className="text-red-500 hover:text-red-700 text-sm"
+              >
+                Delete
+              </button>
             </li>
           ))
         )}
